@@ -2,12 +2,12 @@ import { createContext, useContext, useState } from "react";
 
 type ContextType = {
   selected: string;
-  setSelected: (selected: string) => void;
+  setSelected(selected: string): void;
 };
 
 const TabsContext = createContext<ContextType>({
   selected: undefined,
-  setSelected: () => {},
+  setSelected() {},
 });
 
 const useTabs = () => useContext(TabsContext);

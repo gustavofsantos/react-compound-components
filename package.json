@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "test": "jest --bail"
+    "test": "jest"
   },
   "dependencies": {
     "next": "10.2.3",
