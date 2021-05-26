@@ -1,14 +1,11 @@
-# React Scratchpad
+# Compound Components 
 
-The fastest way to get started scratching some React with tests.
+When you need to implement a set of components that needs to work together, you can use the pattern Compound Component.
 
-## Getting Started
+This means that all the components didn't do nothing if used alone. Instead, you need to build your UI composing those components.
 
-```
-$ npx degit gustavofsantos/react-scratchpad demo
-$ cd demo
-$ yarn install
-$ yarn test
-```
+In this repository you will find a simple example of tabs. It have the main tab provider, `<Tabs />` and other helpers, such as `<TabHeader />` and `<TabBody />`.
 
-Code and tests are located at the same place in the directory `/code`. Feel free to delete, update or reuse that example code.
+Both TabHeader and TabBody must live with the Tabs provider. But the oposite isn't true.
+
+The file `/code/example.tsx` contains the code and `/code/example.spec.tsx` contains the test file. To run the tests you need to install all dependencies (I'm using yarn, so the repository has an `yarn.lock` file). Then run `yarn test`.
