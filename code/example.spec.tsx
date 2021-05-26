@@ -2,6 +2,15 @@ import { render, screen } from "@testing-library/react";
 import user from "@testing-library/user-event";
 import { Tabs, TabBody, TabHeader } from "./example";
 
+beforeEach(() => {
+  jest.spyOn(console, "error");
+  console.error.mockImplementation(() => {});
+});
+
+afterEach(() => {
+  console.error.mockRestore();
+});
+
 const Ui = ({ defaultTab = "" }) => (
   <Tabs defaultTab={defaultTab}>
     <div>
@@ -45,5 +54,21 @@ describe("Compound Components", () => {
 
     expect(screen.getByTestId("settings-panel")).toBeInTheDocument();
     expect(screen.queryByTestId("users-panel")).toBeNull();
+  });
+
+  it("Should throw error when use TabBody without mount the provider", () => {
+    const setup = () => render(<TabBody tabId="body">The body</TabBody>);
+
+    expect(setup).toThrow(
+      "You should wrap the TabBody component with Tabs provider"
+    );
+  });
+
+  it("Should throw error when use TabHeader without mount the provider", () => {
+    const setup = () => render(<TabHeader tabId="body">The body</TabHeader>);
+
+    expect(setup).toThrow(
+      "You should wrap the TabHeader component with Tabs provider"
+    );
   });
 });

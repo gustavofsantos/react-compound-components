@@ -23,13 +23,21 @@ export const Tabs = ({ children, defaultTab = "" }) => {
 };
 
 export const TabHeader = ({ children, tabId }) => {
-  const { setSelected } = useTabs();
+  const { selected, setSelected } = useTabs();
+
+  if (selected === undefined)
+    throw new Error(
+      "You should wrap the TabHeader component with Tabs provider"
+    );
 
   return <div onClick={() => setSelected(tabId)}>{children}</div>;
 };
 
 export const TabBody = ({ children, tabId }) => {
   const { selected } = useTabs();
+
+  if (selected === undefined)
+    throw new Error("You should wrap the TabBody component with Tabs provider");
 
   return selected === tabId ? children : null;
 };
