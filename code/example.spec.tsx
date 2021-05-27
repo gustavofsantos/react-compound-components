@@ -41,13 +41,13 @@ describe("Compound Components", () => {
     expect(screen.queryByTestId("settings-panel")).toBeNull();
   });
 
-  it.skip("Should render the default selected tab", () => {
+  it("Should render the default selected tab", () => {
     render(<Ui defaultTab="users" />);
 
     expect(screen.getByTestId("users-panel")).toBeInTheDocument();
   });
 
-  it.skip("Should render panel when click in the header", () => {
+  it("Should render panel when click in the header", () => {
     render(<Ui defaultTab="users" />);
 
     clickSettings();
@@ -56,7 +56,7 @@ describe("Compound Components", () => {
     expect(screen.queryByTestId("users-panel")).toBeNull();
   });
 
-  it.skip("Should throw error when use TabBody without mount the provider", () => {
+  it("Should throw error when use TabBody without mount the provider", () => {
     const setup = () =>
       render(<TabBody tabId="body">The body</TabBody>);
 
@@ -65,7 +65,7 @@ describe("Compound Components", () => {
     );
   });
 
-  it.skip("Should throw error when use TabHeader without mount the provider", () => {
+  it("Should throw error when use TabHeader without mount the provider", () => {
     const setup = () =>
       render(<TabHeader tabId="body">The body</TabHeader>);
 
