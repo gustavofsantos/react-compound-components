@@ -9,3 +9,7 @@ In this repository you will find a simple example of tabs. It have the main tab 
 Both TabHeader and TabBody must live with the Tabs provider. But the oposite isn't true.
 
 The file `/code/example.tsx` contains the code and `/code/example.spec.tsx` contains the test file. To run the tests you need to install all dependencies (I'm using yarn, so the repository has an `yarn.lock` file). Then run `yarn test`.
+
+## Related Articles
+
+- [React Compound Components](https://gustavosantos.dev/a/react-componentes-compostos) (Portuguese - BR)
