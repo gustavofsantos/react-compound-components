@@ -37,7 +37,9 @@ export const TabBody = ({ children, tabId }) => {
   const { selected } = useTabs();
 
   if (selected === undefined)
-    throw new Error("You should wrap the TabBody component with Tabs provider");
+    throw new Error(
+      "You should wrap the TabBody component with Tabs provider"
+    );
 
   return selected === tabId ? children : null;
 };
